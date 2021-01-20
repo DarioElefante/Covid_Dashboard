@@ -45,7 +45,7 @@
                 <!-- Rounded switch -->
                 <div class="">
                   <div class="toggle">
-                    <input type="checkbox" onclick="toggler()" id="toggler" />
+                    <input type="checkbox" onclick="myFunction()" id="toggler" />
                     <label for="toggler"></label>
                   </div>
                 </div>  
@@ -92,12 +92,12 @@
                         activeClasses: 'border-l border-t border-r border-gray-200 rounded-t text-main',
                         inactiveClasses: 'text-gray-400 border-b hover:text-gray-200' 
                         }">
-                    <ul class="flex lg:hidden">
+                    <ul id="anchor" class="flex lg:hidden">
                         <li class="mr-1" @click = "openTab = 1" :class = "{'-mb-px': openTab === 1}">
-                            <a href="#" class="inline-block py-2 px-4 font-bold bgToggle" :class = "openTab === 1 ? activeClasses : inactiveClasses">Card Dati</a>
+                            <a href="#anchor" class="inline-block py-2 px-4 font-bold bgToggle" :class = "openTab === 1 ? activeClasses : inactiveClasses">Card Dati</a>
                         </li>
                         <li class="mr-1" @click = "openTab = 2" :class = "{'-mb-px': openTab === 2}">
-                            <a href="#" class="inline-block py-2 px-4 font-bold bgToggle" :class = "openTab === 2 ? activeClasses : inactiveClasses">Panoramica Generale</a>
+                            <a href="#anchor" class="inline-block py-2 px-4 font-bold bgToggle" :class = "openTab === 2 ? activeClasses : inactiveClasses">Panoramica Generale</a>
                         </li>
                     </ul>     
 

@@ -1,31 +1,34 @@
+    let lastStatus = localStorage.getItem("status")
+    let toggle = document.querySelector('#toggler')
+    console.log(typeof lastStatus)
 
-    // JUST FOR BACKGROUND CHANGE
-    const toggle = document.querySelector('#toggler');
+      if(lastStatus == "true"){
+        toggle.checked = true
+        myFunction() 
+    }
 
-    toggle.addEventListener("click", () => document.body.classList.toggle('on') , true);
-    
-    
-    function toggler(){
-
-    let toggler = document.querySelector('#toggler')
+    function myFunction() {setTimeout(function() {
+     console.log('ci sono')
+    let stage = toggle.checked 
+    localStorage.setItem("status", stage);
     let pieTrigger = document.querySelector('#pieTrigger')
     let body = document.querySelector('#body')
     let cards =[...document.getElementsByClassName('toggleCard')]
-    
-    
-        if(toggler.checked == true){
 
+        if(stage == true){
+
+            body.classList.toggle('on')
             body.classList.add('bg-white','text-gray-800')
             body.classList.remove('bg_dark','text-white')
             pieTrigger.classList.add('btn-circle-light')
             pieTrigger.classList.remove('btn-circle')
             cards.forEach(el=>{
-                el.classList.add('bg-main','card_custom_light')
                 el.classList.remove('bg_gray','card_custom')
+                el.classList.add('bg-main','card_custom_light')
             })
-           
-            
+
         }else{
+            body.classList.toggle('on')
             body.classList.add('bg_dark','text-white')
             body.classList.remove('bg-white','text-gray-800')
             pieTrigger.classList.remove('btn-circle-light')
@@ -34,25 +37,8 @@
                 el.classList.remove('bg-main','card_custom_light')
                 el.classList.add('bg_gray','card_custom')
             })
-            
         }
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }, 300)}
 
 fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni.json')
 .then(response => response.json())
@@ -79,11 +65,6 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
     //Creo un array dei positivi totali per ogni regione e faccio la somma di ogni elemento nell'arrey per ottenere il totale dei positivi in italia
     let totalPositive = lastUpdatedData.map(el => el.totale_positivi).reduce((t,n)=>t+n)
     document.querySelector('#totalPositive').innerHTML=totalPositive
-
-
-   
-
-
 
     
     //Catturiamo gli id di riferimento nell'HTML
@@ -160,6 +141,14 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
             
             `
 
+    let lastStatus = localStorage.getItem("status")
+    let toggle = document.querySelector('#toggler')
+    console.log(typeof lastStatus)
+
+      if(lastStatus == "true"){
+        toggle.checked = true
+        myFunction() 
+    }
             let trendData = sorted.map(el => el).reverse().filter(el => el.denominazione_regione == region).map(el =>[el.data,el.nuovi_positivi,el.deceduti,el.dimessi_guariti])
 
             let maxNew = Math.max(...trendData.map(el => el[1]))
