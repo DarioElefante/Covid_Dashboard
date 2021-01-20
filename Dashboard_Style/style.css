@@ -1,0 +1,441 @@
+* {
+    font-family:'Goldman', cursive;
+    
+ }
+
+
+ html{
+     overflow-x: hidden;
+ }
+
+ 
+  body{
+    background-color: #ebecf0;
+ }
+
+ :root{
+    --main-color: #c38fff;
+    --second-color: #fff;
+    --third-color: #babecc;
+    --dark-color: #181818;
+    --gray-color: #333333;
+ }
+
+ .bg-main{
+     background-color:  #f5f5f5;
+ }
+
+ .bg_dark{
+    background-color: var(--dark-color);
+ }
+
+ .bg_gray{
+    background-color: var(--gray-color);
+ }
+
+
+ .text-main{
+    color: var(--main-color);
+}
+
+.text-light{
+    color: #6DD4D9;
+}
+
+.card_custom{
+    box-shadow: 5px 5px 15px #141414;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.card_custom:hover{
+    box-shadow: 2px 2px 5px  #141414;
+    cursor: pointer;
+    transform: scale(0.98);
+}
+
+.card_custom:active{
+    box-shadow: inset 1px 1px 2px #141414, -1px -1px 2px #3d3d3d;
+    transform: scale(0.96);
+}
+
+/* lightMode */
+
+.card_custom_light{
+    box-shadow: -5px -5px 20px var(--second-color), 5px 5px 20px var(--third-color);
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.card_custom_light:hover{
+    box-shadow: -2px -2px 5px var(--second-color), 2px 2px 5px var(--third-color);
+    cursor: pointer;
+    transform: scale(0.98);
+}
+
+.card_custom_light:active{
+    box-shadow: inset 1px 1px 2px var(--third-color), -1px -1px 2px var(--second-color);
+    transform: scale(0.96);
+}
+
+.scrollable{
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.modal-custom{
+    display:block;
+    position:fixed;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    padding-top:5%;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: 0.2s; 
+    overflow-y: scroll;   
+}
+
+.modal-custom-content{
+    background-color: var(--gray-color);
+    margin: auto;
+    width:80%;
+    padding:30px;
+    border-radius: 10px;
+}
+
+@media screen and (max-width:576px){
+    .modal-custom-content{
+      
+        width:auto;
+        
+    }
+}
+
+.modal-custom.active{
+    z-index:10;
+    opacity: 1;
+}
+
+
+/* CSS per grafici regione */
+
+.pin-new{
+    border-right:2px solid  #c38fff41;
+    position: relative;
+    width: 5px;
+    margin-right: 4px;
+    margin-bottom: 15px;
+}
+
+.pin-new::after{
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+}
+
+.pin-death{
+    border-right:2px solid rgba(255, 0, 0, 0.2);
+    position: relative;
+    width: 5px;
+    margin-right: 4px;
+}
+
+.pin-death::after{
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.pin-recovered{
+    border-right:2px solid rgba(0, 255, 0, 0.2);
+    position: relative;
+    width: 5px;
+    margin-right: 4px;
+}
+
+.pin-recovered::after{
+    position: absolute;
+    content: "";
+    top: 0px;
+    right: -3px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.plot{
+    height: 200px;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    display: flex;
+    align-items: flex-end;
+}
+
+.btn-circle{
+    
+    border: 0;
+    outline: 0;
+    background-color: var(--gray-color);
+    box-shadow: 5px 5px 15px #141414;
+    transition: 0.4s;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+
+}
+
+.btn-circle:hover{
+
+    box-shadow: 2px 2px 5px  #141414;
+    cursor: pointer;
+    transform: scale(0.98);
+
+}
+
+.btn-circle:active{
+
+    box-shadow: inset 1px 1px 2px #141414, -1px -1px 2px #3d3d3d;
+    transform: scale(0.96);
+
+}
+
+/* light pie */
+
+.btn-circle-light{
+    
+    border: 0;
+    outline: 0;
+    background-color: #f5f5f5;
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    transition: 0.4s;
+    border-radius: 50%;
+    height: 75px;
+    width: 75px;
+
+}
+
+.btn-circle-light:hover{
+
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+    cursor: pointer;
+    transform: scale(0.98);
+
+}
+
+.btn-circle-light:active{
+
+    box-shadow: inset 1px 1px 2px #babecc,inset -1px -1px 2px #fff;
+    transform: scale(0.96);
+
+}
+
+.pieChart{
+    width: 400px;
+    height: 400px;
+    border-radius: 100%;
+    position: relative;
+}
+
+.pieChart::after{
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    left: 50px;
+    top: 50px;
+    z-index: 9999999;
+    background-color: var(--gray-color);
+    border-radius: 50%;
+}
+
+
+
+@media only screen and (max-width: 576px){
+    .pieChart{
+        width: 200px;
+        height: 200px;
+    }
+
+    .pieChart::after{
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        left: 50px;
+        top: 50px;
+        z-index: 9999999;
+        background-color: var(--gray-color);
+        border-radius: 50%;
+    }
+
+}
+
+/* scrollbar customization */
+/* width */
+::-webkit-scrollbar {
+    width: 9px;
+    height: 9px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #e9d6ff42; 
+border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: var(--main-color); 
+border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #a85cff; 
+}
+
+
+.shim-main {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--main-color);
+  }
+  .shim-main::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(233, 233, 233, 1) 0,
+      rgba(233, 233, 233, 0.9) 50%,
+      rgba(233, 233, 233, 0.8) 100%
+    );
+    animation: shimmer 2s ease-out infinite;
+    content: "";
+  }
+
+  @keyframes shimmer {
+    100% {
+      transform: translateX(0%);
+      opacity: 0;
+    }
+  }
+
+
+  /* Darkmode toggler */
+  .toggle {
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .toggle:before {
+    content: "DARK";
+    position: absolute;
+    left: 16px;
+    top: 65px;
+    font-size: 18px;
+    color: #fff;
+  }
+  .toggle:after {
+    content: "LIGHT";
+    position: absolute;
+    right: -144px;
+    top: 65px;
+    font-size: 18px;
+    color:  #c38fff75;
+  }
+  .toggle label {
+    position: relative;
+    top: 40px;
+    left: 80px;
+    display: inline-block;
+    width: 75px;
+    height: 75px;
+    background-color: #c38fff;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.1), 0px 5px 10px 0px #c38fff4f;
+    -webkit-tap-highlight-color: transparent;
+    transition: 0.2s;
+  }
+
+    .toggle label:hover{
+        cursor: pointer;
+        transform: scale(0.98);
+    }
+
+  .toggle label:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s cubic-bezier(0, -1.85, 0.27, 1.75);
+    height: 42px;
+    width: 42px;
+    background-color: #c38fff;
+    border-radius: 46px;
+    box-shadow: inset 0px 0px 0px 8px #fff;
+  }
+  .toggle label::before:checked {
+    content: "";
+    position: absolute;
+    box-shadow: inset 0px 0px 0px 8px  #c38fffa1;
+  }
+  .toggle input {
+    display: none;
+  }
+  .toggle input:checked + label {
+    background-color: #f5f5f5;
+    box-shadow: -5px -5px 20px #fff, 5px 5px 20px #babecc;
+    transition: 0.2s;
+  }
+
+  .toggle input:checked + label:hover{
+    box-shadow: -2px -2px 5px #fff, 2px 2px 5px #babecc;
+    cursor: pointer;
+    transform: scale(0.98);
+  }
+
+  .toggle input:checked + label:before {
+    width: 10px;
+    background-color: #fff;
+    box-shadow: inset 0px 0px 0px 8px  #c38fff;
+  }
+  
+  .on .toggle:before {
+    color: rgba(62, 160, 82, 0.219);
+  }
+  .on .toggle:after {
+    color: #c38fff;
+  }
+
+ .position{
+     top: 10px;
+     right: 40px;
+ }
+
+ @media screen and (min-width : 1024px){
+    .blocked{
+        display: block !important;
+    }
+ }
+ 
+

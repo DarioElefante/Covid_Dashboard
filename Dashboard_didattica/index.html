@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+
+    <!-- font-awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    
+    <!-- custom style -->
+    <link rel="stylesheet" href="style.css">
+    
+    
+    <title>Dashboard Covid-19</title>
+</head>
+<body>
+
+    <div class="modal-custom">
+        <div class="modal-custom-content">
+
+        </div>
+    </div>
+
+    
+    <header>
+    
+    <div class="container py-5">
+        <div class="row ">
+            <div class="col-12 col-md-6">               
+                <p class="h2">Dati aggiornati al: <span id="data"></span></p>
+            </div>
+            <div class="col-12 col-md-6">
+                <button id="pieTrigger" class="btn btn-circle">
+                    <i class=" text-main fas fa-chart-pie fa-2x"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    </header>
+
+
+    <main>
+    <div class="container-fluid px-5 py-5">
+        <div class="row">
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card_custom d-flex flex-column h-100" data-trend="nuovi_positivi">
+                    <p class="h4 mb-5">Casi Totali</p>
+                    <p id="totalCases" class="h2 mb-0 text-end text-main mt-auto">1234</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card_custom d-flex flex-column h-100" data-trend="dimessi_guariti">
+                    <p class="h4 mb-5">Guariti Totali</p>
+                    <p id="totalRecovered" class="h2 mb-0 text-end text-main mt-auto">1234</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card_custom d-flex flex-column h-100" data-trend="deceduti">
+                    <p class="h4 mb-5">Morti</p>
+                    <p id="totalDeath" class="h2 mb-0 text-end text-main mt-auto">1234</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-3 mb-3">
+                <div class="card_custom d-flex flex-column h-100" data-trend="totale_positivi">
+                    <p class="h4 mb-5">Attuali</p>
+                    <p id="totalPositive" class="h2 mb-0 text-end text-main mt-auto">1234</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row justify-content-around">
+            <div class="col-12 col-lg-5 scrollable">
+                <div id="cardWrapper" class="row justify-content-around p-3">
+                    
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 scrollable">
+                <div class="row p-3" id="progressWrapper">
+                    
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <!-- Sempre uno scherzone per l'esempio di sotto -->
+    
+    <!-- <div class="container-fluid my-5 py-5 ">
+        <div class="row ">
+            <div class="col-12">
+                <div id="trendNew" class="d-flex align-items-end border border-dark" style="height: 400px;">
+
+
+                </div>
+            </div>
+        </div>
+    </div> -->
+    
+ 
+    
+    
+    <script src="script.js"></script>    
+ 
+</body>
+</html>
+
