@@ -3,12 +3,12 @@
     console.log(typeof lastStatus)
 
       if(lastStatus == "true"){
-        toggle.checked = true
-        myFunction() 
+          toggle.checked = true
+          myFunction() 
     }
 
     function myFunction() {setTimeout(function() {
-     console.log('ci sono')
+     console.log(toggler)
     let stage = toggle.checked 
     localStorage.setItem("status", stage);
     let pieTrigger = document.querySelector('#pieTrigger')
@@ -93,7 +93,7 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
         //Facciamo la stessa cosa delle card ma con le progressbar. Per stabilire il valore di avanzamento della barra sfruttiamo il numero dei nuovi poistivi per regione sul numero massimo dei positivi in italia nella giornata.
         ` 
         <p class="mb-2 text-xl">${el.denominazione_regione}: <span class="text-main">${el.nuovi_positivi}</span></p>
-        <div class="relative w-full bg_gray rounded">
+        <div class="relative z-index-neg w-full bg_gray rounded">
             <div class="absolute top-0 h-4 rounded shim-main" style="width:${100*el.nuovi_positivi/todayMax}%;"></div>
         </div>
         `
@@ -119,9 +119,12 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
                                   
                 <div class="grid grid-cols-1 ">
                     <div class="mb-2">
+                        <p class="float-right ">
+                            <i id="closure" class="far fa-times-circle fa-2x text-gray-400"></i>
+                        </p>
                         <p class="text-4xl text-main">${dataAboutRegion.denominazione_regione}</p>
                     </div>
-                    <div class="mb-5">
+                    <div class="md:mb-5">
                         <p class="text-lg text-white">Totale casi: <span class="text-main"><span class="text-main">${dataAboutRegion.totale_casi}</span></p>
                         <p class="text-lg text-white">Nuovi positivi: <span class="text-main">${dataAboutRegion.nuovi_positivi}</span></p>
                         <p class="text-lg text-white">Deceduti: <span class="text-main">${dataAboutRegion.deceduti}</span></p>
@@ -276,9 +279,14 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
             modalContent.innerHTML = 
             `
             <div class="grid grid-rows-2">
-                <p class="text-2xl text-main">${set.replace(/_/g," ").toUpperCase()}</p>
+                <div class = "my-2">
+                    <p class="float-right">
+                     <i id="closure" class="far fa-times-circle fa-2x text-gray-400"></i>
+                    </p>
+                    <p class="text-2xl text-main">${set.replace(/_/g," ").toUpperCase()}</p>
+                </div>
                 <hr>
-                <canvas id="totalTrend" width="400" height="400"></canvas>
+                 <canvas id="totalTrend" width="400" height="400"></canvas>
                 </div>
                  `
             let totalTrendData = document.querySelector('#totalTrend')
@@ -380,9 +388,14 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
         `
         
          <div class="">
-             <h2 class="text-main text-4xl mb-2"> Grafico positivi nazionali </h2>
+            <div class = "my-2">
+            <p class="float-right">
+            <i id="closure" class="far fa-times-circle fa-2x text-gray-400"></i>
+            </p>
+             <h2 class="text-main text-2xl md:text-4xl mb-2"> Grafico positivi nazionali </h2>
+            </div> 
              <hr>
-             <canvas id="pieChart" class="mt-5" width="400" height="400"></canvas>        
+             <canvas id="pieChart" class="md:mt-5" width="400" height="400"></canvas>        
          </div>
       
 
@@ -431,7 +444,9 @@ fetch('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-c
 
      //Ogni click al di fuori della modale la farà chiudere
      window.addEventListener('click',function(e){
-        if(e.target == modal){
+     let closure = document.querySelector('#closure')
+        
+        if(e.target == modal || e.target == closure){
             modal.classList.remove('active')
         }
     })
